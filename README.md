@@ -14,5 +14,5 @@ bspc rule -a *:float:* sticky=on
 sxhkdrc
 ```
 super + d
-	urxvtc -name "float" -e "/home/pedro/scripts/launcher" -name "float"
+	urxvtc -name "float" -e "/home/pedro/scripts/fzf-launcher" -name "float"
 ```
