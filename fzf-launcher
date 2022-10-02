@@ -1,0 +1,24 @@
+#!/bin/sh
+list_programs(){
+	bffr="$(echo $PATH | sed 's/:/\n/g' | xargs find)\n"
+	bffr+="$(alias | cut -d ' ' -f 2 | cut -d '=' -f 1)\n"
+	echo -n -e "$bffr" | sort
+	echo "shell"
+	echo "exit"
+}
+
+
+PROGRAM=$(echo "$(list_programs)" | sort | fzf --no-mouse)
+
+if [[ "$PROGRAM" == "shell"  ]]; then
+	read COMMAND
+	$COMMAND
+elif [[ "$PROGRAM" == "exit"  ]]; then
+	exit
+elif [[ "$PROGRAM" == ""  ]]; then
+	exit
+else
+	nohup $PROGRAM 2>/dev/null 1>/dev/null &
+	sleep 0.05
+fi
+exit
