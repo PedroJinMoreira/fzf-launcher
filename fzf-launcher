@@ -11,8 +11,8 @@ list_programs(){
 PROGRAM=$(echo "$(list_programs)" | sort | fzf --no-mouse)
 
 if [[ "$PROGRAM" == "shell"  ]]; then
-	read COMMAND
-	$COMMAND
+	$SHELL
+	exit
 elif [[ "$PROGRAM" == "exit"  ]]; then
 	exit
 elif [[ "$PROGRAM" == ""  ]]; then
