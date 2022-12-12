@@ -18,7 +18,7 @@ elif [[ "$PROGRAM" == "exit"  ]]; then
 elif [[ "$PROGRAM" == ""  ]]; then
 	exit
 else
-	nohup $PROGRAM 2>/dev/null 1>/dev/null &
+	nohup "$PROGRAM" 2>/dev/null 1>/dev/null &
 	sleep 0.05
 fi
 exit
